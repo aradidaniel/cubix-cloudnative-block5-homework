@@ -34,23 +34,19 @@ spec:
           startupProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8080
-            initialDelaySeconds: 1
-            periodSeconds: 30
-            failureThreshold: 1
-          
+              port: management
+            periodSeconds: 1
+            failureThreshold: 30
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 8080
-            initialDelaySeconds: 30
+              port: management
             periodSeconds: 10
             failureThreshold: 2
-
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 8080
+              port: management
             periodSeconds: 5
             failureThreshold: 1
 
